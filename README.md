@@ -1,12 +1,12 @@
-# 🚀 Implementação do Desafio: [Seu Nome / Título]
+# Implementação do Desafio: [Adriano Fernandes / adriano.p.f@outlook.com]
 
 Esta seção detalha a estrutura e as funcionalidades implementadas para atender aos requisitos obrigatórios do desafio de Front-end da Cadastra.
 
-## 🛠️ Estrutura e Tecnologia
+## Estrutura e Tecnologia
 
 O projeto foi desenvolvido utilizando HTML, CSS puro e TypeScript, seguindo os princípios de Vanilla JS para garantir alto desempenho e baixo acoplamento de dependências, conforme solicitado. O código TypeScript é compilado para JavaScript através de um processo de build (assumindo Gulp/Grunt) no arquivo `bundle.js`, que é referenciado no `index.html`.
 
-## ✨ Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
 O principal ponto de entrada é o `src/ts/index.ts`, onde toda a lógica de aplicação é gerenciada, promovendo a separação de responsabilidades (JavaScript para dados/lógica, HTML para estrutura, CSS para estilo).
 
@@ -39,7 +39,7 @@ A função mestra `applyFiltersAndSort()` é disparada em cada interação do us
 - **Responsividade:** Devido a urgências e restrições de tempo com meu trabalho atual, a adaptação completa do layout para dispositivos móveis (_Responsividade_) **não pôde ser concluída** dentro do prazo ideal. O CSS base para o layout principal (desktop) está estruturado, mas a implementação das _media queries_ para _viewports_ menores (mobile/tablet) está pendente.
 - **Semântica:** Uso de elementos HTML semânticos (`<header>`, `<main>`, `<aside>`, `<footer>`) e atributos `data-*` para manipulação limpa via JavaScript.
 
-## ⚙️ Como Rodar o Código
+## Como Rodar o Código
 
 Para testar o projeto, siga os passos abaixo:
 
