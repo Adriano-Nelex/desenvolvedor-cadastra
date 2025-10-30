@@ -1,0 +1,112 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  background-color: white;
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  .product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 0;
+  }
+  .product-info {
+    flex-grow: 1;
+    padding: 15px 10px 5px;
+  }
+  .product-title {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    color: #555;
+    text-transform: uppercase;
+  }
+
+  .product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0;
+    display: block;
+  }
+
+  .product-price-installments {
+    font-size: 12px;
+    font-weight: 500;
+    color: #777;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .btn-buy {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    &:hover {
+      background-color: #444;
+    }
+  }
+}
+
+.product-list-section {
+  .product-card {
+    width: 192px;
+    margin: auto;
+    figure img {
+      width: 100%;
+      height: 293px;
+      object-fit: contain;
+    }
+    .product-card__info {
+      .product-card__name {
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 10px 0;
+        text-transform: uppercase;
+      }
+      .product-card__price {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 3px;
+        display: block;
+      }
+      .product-card__installment {
+        font-size: 14px;
+        font-weight: 400;
+        font-style: normal;
+        color: #666666;
+        margin-bottom: 14px;
+        display: block;
+      }
+    }
+    .product-card__button {
+      background-color: #000;
+      color: #fff;
+      padding: 7px 49px;
+      font-size: 14px;
+      font-weight: 700;
+      font-style: normal;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

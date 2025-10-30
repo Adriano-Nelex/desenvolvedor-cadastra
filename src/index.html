@@ -1,19 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desenvolvedor Cadastra</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenvolvedor Cadastra</title>
-  <link rel="stylesheet" href="main.css" />
-</head>
+    <!-- Css -->
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <img
+          src="img/logo-cadastra.png"
+          alt="Cadastra Logo"
+          class="site-header__logo"
+        />
+        <div class="site-header__util cart-icon-wrapper">
+          <img src="img/cart.svg" alt="Cart" class="cart-icon" />
+          <span id="cart-badge" class="cart-badge" style="display: none"
+            >0</span
+          >
+        </div>
+      </div>
+    </header>
 
-<body>
+    <main class="main-content container">
+      <div class="category-filter">
+        <h1>Blusas</h1>
+        <div class="category-filter__util">
+          <select id="sort-select">
+            <option value="">Ordenar por:</option>
+            <option value="date">Mais recentes</option>
+            <option value="price-asc">Menor preço</option>
+            <option value="price-desc">Maior preço</option>
+          </select>
+        </div>
+      </div>
 
-</body>
-<h1>Desafio Cadastra</h1>
+      <div class="category-wrapper">
+        <aside class="filters-sidebar">
+          <!-- Filtro de Cores -->
+          <div class="filter-group filter-group--colors">
+            <h3 class="filter-group__title">CORES</h3>
+            <div class="filter-options">
+              <label class="checkbox-option">
+                <input
+                  type="checkbox"
+                  data-filter-type="color"
+                  value="Amarelo"
+                />
+                Amarelo
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" data-filter-type="color" value="Azul" />
+                Azul
+              </label>
+              <label class="checkbox-option">
+                <input
+                  type="checkbox"
+                  data-filter-type="color"
+                  value="Branco"
+                />
+                Branco
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" data-filter-type="color" value="Cinza" />
+                Cinza
+              </label>
+              <label class="checkbox-option">
+                <input
+                  type="checkbox"
+                  data-filter-type="color"
+                  value="Laranja"
+                />
+                Laranja
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" data-filter-type="color" value="Verde" />
+                Verde
+              </label>
+              <label class="checkbox-option">
+                <input
+                  type="checkbox"
+                  data-filter-type="color"
+                  value="Vermelho"
+                />
+                Vermelho
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" data-filter-type="color" value="Preto" />
+                Preto
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" data-filter-type="color" value="Rosa" />
+                Rosa
+              </label>
+              <label class="checkbox-option">
+                <input type="checkbox" data-filter-type="color" value="vinho" />
+                vinho
+              </label>
+            </div>
+          </div>
 
-<script src="bundle.js"></script>
+          <!-- Filtro de Tamanhos -->
+          <div class="filter-group filter-group--sizes">
+            <h3 class="filter-group__title">TAMANHOS</h3>
+            <div class="filter-options filter-options--pills">
+              <button class="size-pill" data-filter-type="size" data-size="P">
+                P
+              </button>
+              <button class="size-pill" data-filter-type="size" data-size="M">
+                M
+              </button>
+              <button class="size-pill" data-filter-type="size" data-size="G">
+                G
+              </button>
+              <button class="size-pill" data-filter-type="size" data-size="GG">
+                GG
+              </button>
+              <button class="size-pill" data-filter-type="size" data-size="U">
+                U
+              </button>
+              <button class="size-pill" data-filter-type="size" data-size="36">
+                36
+              </button>
+              <button class="size-pill" data-filter-type="size" data-size="38">
+                38
+              </button>
+              <button class="size-pill" data-filter-type="size" data-size="40">
+                40
+              </button>
+            </div>
+          </div>
 
+          <!-- Filtro de Faixa de Preço -->
+          <div class="filter-group filter-group--price">
+            <h3 class="filter-group__title">FAIXA DE PREÇO</h3>
+            <div class="filter-options">
+              <label class="checkbox-option">
+                <input type="checkbox" data-filter-type="price" value="0-50" />
+                de R$0 até R$50
+              </label>
+              <label class="checkbox-option">
+                <input
+                  type="checkbox"
+                  data-filter-type="price"
+                  value="51-150"
+                />
+                de R$51 até R$150
+              </label>
+              <label class="checkbox-option">
+                <input
+                  type="checkbox"
+                  data-filter-type="price"
+                  value="151-300"
+                />
+                de R$151 até R$300
+              </label>
+              <label class="checkbox-option">
+                <input
+                  type="checkbox"
+                  data-filter-type="price"
+                  value="301-500"
+                />
+                de R$301 até R$500
+              </label>
+              <label class="checkbox-option">
+                <input
+                  type="checkbox"
+                  data-filter-type="price"
+                  value="500-max"
+                />
+                a partir de R$ 500
+              </label>
+            </div>
+          </div>
+        </aside>
+
+        <section class="product-list-section">
+          <div class="product-grid"></div>
+          <button class="btn-load-more">CARREGAR MAIS</button>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>CADASTRA. IMPLEMENTAÇÃO DE E-COMMERCE VTEX</p>
+      </div>
+    </footer>
+
+    <script src="bundle.js"></script>
+  </body>
 </html>

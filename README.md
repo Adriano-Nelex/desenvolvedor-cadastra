@@ -1,76 +1,62 @@
-# Venha ser um desenvolvedor da Cadastra
+# 🚀 Implementação do Desafio: [Seu Nome / Título]
 
-Olá! Somos a Cadastra, uma Next-Gen Company que oferece soluções globais em marketing, tecnologia, estratégia de negócios, commerce, dados e analytics. Este desafio é voltado para o nosso Centro de Excelência (COE) de Commerce, especializado em implantação, migração, evolução e otimização de e-commerce.  Contamos com escritórios em 5 países, mas num formato de trabalho 100% home office.
+Esta seção detalha a estrutura e as funcionalidades implementadas para atender aos requisitos obrigatórios do desafio de Front-end da Cadastra.
 
-Estamos em busca de Pessoas Desenvolvedoras `Front-end`, com sólidos conhecimentos em HTML, CSS e TS para projetar interfaces e entregar a melhor experiência para os consumidores visando sempre a otimização do código e agilidade no desenvolvimento.
+## 🛠️ Estrutura e Tecnologia
 
-## O que procuramos
+O projeto foi desenvolvido utilizando HTML, CSS puro e TypeScript, seguindo os princípios de Vanilla JS para garantir alto desempenho e baixo acoplamento de dependências, conforme solicitado. O código TypeScript é compilado para JavaScript através de um processo de build (assumindo Gulp/Grunt) no arquivo `bundle.js`, que é referenciado no `index.html`.
 
-### Requisitos Obrigatórios
+## ✨ Funcionalidades Implementadas
 
-- Html5, css3;
-- Javascript/Typescript;
-- Consumo de APIs.
-- Versionamento Git;
-- Grunt/gulp;
-- Sass/less;
-- Nodejs
-- Sites responsivos;
-- Iniciativa, criatividade e colaboração;
-- Boas práticas: reutilização de código, semântica, organização, performance.
+O principal ponto de entrada é o `src/ts/index.ts`, onde toda a lógica de aplicação é gerenciada, promovendo a separação de responsabilidades (JavaScript para dados/lógica, HTML para estrutura, CSS para estilo).
 
-### Desejáveis:
+### 1. Consumo de API e Gerenciamento de Dados
 
-- Experiência com algum CMS
-- Conhecimento/Experiência em Vtex
-- Nodejs
+- **API:** A função assíncrona `loadProducts()` é responsável por buscar a lista completa de produtos na API mockada (`http://localhost:5000/products`), garantindo o tratamento de erros.
+- **Estado Global:** Variáveis de estado (`allProducts`, `displayedProducts`, `currentProductCount`) gerenciam a lista completa de produtos e a lista atualmente visível para o usuário.
 
-----
+### 2. Filtros e Ordenação Dinâmica
 
-## Como se candidatar a vaga
+A função mestra `applyFiltersAndSort()` é disparada em cada interação do usuário (mudança de filtro ou ordenação).
 
-- [Crie um fork desse projeto;](https://github.com/Cadastra-Next-Gen-Company/desenvolvedor-cadastra/fork)
-- No seu fork, codifique o layout seguindo as instruções abaixo;
-- Atualize o readme com as instruções necessárias para rodar o seu código;
-- Adicione também seu e-mail de contato ao readme do projeto ( caso seu e-mail do github esteja privado )
-- envie para [vinicius.delfino@cadastra.com](mailto:vinicius.delfino@cadastra.com?subject=Vaga%20DEV%20-%20Cadastra) com cópia para [andresa.klein@cadastra.com](mailto:andresa.klein?subject=Vaga%20DEV%20-%20Cadastra)
- 
+- **Filtragem em Tempo Real:**
+  - **Cor, Tamanho e Faixa de Preço:** A função coleta o estado atual de todos os _checkboxes_ e botões de filtro (`.size-pill.is-selected`) e aplica uma cadeia de filtros (`.filter()`) na lista de produtos.
+- **Ordenação:** Implementação de ordenação por **Preço (Crescente/Decrescente)** e **Data de Lançamento**, utilizando `.sort()`.
 
-**obs.**: link do projeto [github.com/Cadastra-Next-Gen-Company/desenvolvedor-cadastra](https://github.com/Cadastra-Next-Gen-Company/desenvolvedor-cadastra)
+### 3. Paginação e Carregamento Contínuo
 
-### Instruções para o teste
+- **`renderProducts()`:** Responsável por renderizar apenas um lote de `PRODUCTS_PER_LOAD` (9 produtos) por vez.
+- **"Carregar Mais":** O botão **CARREGAR MAIS** utiliza a função `renderProducts(true)` para adicionar produtos à grid sem limpar o conteúdo anterior. A visibilidade do botão é controlada por `updateLoadMoreButton()`.
 
-O layout se encontra no [figma](https://www.figma.com/file/Z5RCG3Ewzwm7XIPuhMUsBZ/Desafio-Cadastra?type=design&node-id=0%3A1&mode=design&t=A0G2fRjMSrcQjchw-1).
+### 4. Funcionalidade de Carrinho (Badge de Notificação)
 
-### Dependências
+- **Contador:** A variável `cartCount` armazena a quantidade de itens.
+- **Interação:** Um listener de evento (`setupBuyButtonListeners()`) é anexado a todos os botões **COMPRAR**, incluindo os carregados dinamicamente.
+- **Feedback Visual:** A função `addToCart()` incrementa a contagem e chama `updateCartBadge()`, que exibe um **Badge (círculo laranja)** com a quantidade de itens no canto superior direito do ícone do carrinho, seguindo o design solicitado. Uma pequena animação de pulso (`.pulse` no CSS) foi adicionada para feedback imediato ao usuário.
 
-O projeto possui um setup pronto no qual há a necessidade de possuir o nodejs instalado na versão 14 ou superior.
+### 5. Responsividade e Boas Práticas (Ponto de Atenção)
 
-Para instalar as dependências só é preciso executar o comando: `npm install`
+- **Responsividade:** Devido a urgências e restrições de tempo com meu trabalho atual, a adaptação completa do layout para dispositivos móveis (_Responsividade_) **não pôde ser concluída** dentro do prazo ideal. O CSS base para o layout principal (desktop) está estruturado, mas a implementação das _media queries_ para _viewports_ menores (mobile/tablet) está pendente.
+- **Semântica:** Uso de elementos HTML semânticos (`<header>`, `<main>`, `<aside>`, `<footer>`) e atributos `data-*` para manipulação limpa via JavaScript.
 
-O dar start no server e nos processos para desenvolvimento é necessário rodar o comando: `npm start `
+## ⚙️ Como Rodar o Código
 
-Uma ver que o comando é dado ele irá levantar 2 servidores, sendo eles:
- - um para acessar o front-end que roda na porta 3000. No qual pode ser acessado pela url: http://localhost:3000
- - um para o json-server que irá export uma api com a lista de produtos que roda na porta 5000. Para acessar os produtos é na url:  http://localhost:5000/products
+Para testar o projeto, siga os passos abaixo:
 
-### Objetivo
+1.  **Pré-requisitos:** Certifique-se de ter o **Node.js (v14 ou superior)** instalado.
 
-O objetivo desse desafio é avaliar a seus conhecimentos fundamentais de front end, por isso pedimos que não utilize nenhum framework, porem caso deseje utilizar frameworks como react, é possível adicionar ao setup.
-### Obrigatório
+2.  **Instalação de Dependências:**
 
-- HTML5 e CSS3
-- Typescript
-- Requisição a API para obter os produtos
-- Funcionalidade: Filtrar produtos por cor, tamanho e preço.
-- Funcionalidade: Adicionar produto ao carrinho.
-- Funcionalidade: Carregar mais produtos.
-- Não utilizar Bootstrap, Foundation Css, Semantic ui ou semelhantes ;
-- Responsividade
+    ```bash
+    npm install
+    ```
 
-#### Bônus
+3.  **Execução do Projeto:**
+    O comando abaixo inicia o servidor local (`http://localhost:3000`) e o servidor da API (`http://localhost:5000`) simultaneamente:
 
-- Typescript com clean code
-- Adição de processo no gulp para otimizar imagens
+    ```bash
+    npm start
+    ```
 
-##### Dúvidas: [vinicius.delfino@cadastra.com](mailto:vinicius.delfino@cadastra.com?subject=Dúvida%20Vaga%20DEV%20-%20Cadastra)
+4.  **Acesso:**
+    Abra a URL no seu navegador: **http://localhost:3000**

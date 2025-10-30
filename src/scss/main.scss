@@ -1,1 +1,15 @@
+// Variáveis
+@import "base/variables";
+
+// Resets, Tipografia, Container
 @import "reset";
+@import "base/base";
+
+// Layout Principal
+@import "layout/header";
+@import "layout/main-layout";
+@import "layout/filters";
+@import "layout/footer";
+
+// Componentes Reutilizáveis
+@import "components/product-card";
