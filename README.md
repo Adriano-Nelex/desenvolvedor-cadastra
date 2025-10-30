@@ -55,7 +55,7 @@ Para testar o projeto, siga os passos abaixo:
     O comando abaixo inicia o servidor local (`http://localhost:3000`) e o servidor da API (`http://localhost:5000`) simultaneamente:
 
     ```bash
-    npm start
+    gulp default
     ```
 
 4.  **Acesso:**
